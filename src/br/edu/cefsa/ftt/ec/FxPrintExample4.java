@@ -89,7 +89,7 @@ public class FxPrintExample4 extends Application
 		
 		if (proceed) 
 		{
-			print(job, node);
+			this.print(job, node);
 		}
 	}
 	

@@ -24,6 +24,8 @@ import javafx.stage.Stage;
  * 
  * Source: https://dzone.com/articles/introduction-example-javafx-8
  * 
+ * Example simple page to print: https://www.york.ac.uk/teaching/cws/wws/webpage1.html
+ * 
  */
 public class PrintDemo extends Application {
 	
@@ -70,6 +72,9 @@ public class PrintDemo extends Application {
  
         // When the user clicks the print button the webview node is printed
         printButton.setOnAction( aEvent -> {
+        	System.out.println("Imprimindo mano...");
+        	print(webPage);
+
             printButtonClickedProperty.set(true);
         });
  
@@ -77,7 +82,7 @@ public class PrintDemo extends Application {
         printActionProperty.addListener( (ChangeListener) (obsValue, oldState, newState) -> {
             if (newState == State.SUCCEEDED) {
             	System.out.println("Printing...");
-            	this.print(webPage);
+            	print(webPage);
             }
         });
  

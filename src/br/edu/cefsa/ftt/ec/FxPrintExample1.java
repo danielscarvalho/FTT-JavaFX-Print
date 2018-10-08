@@ -14,8 +14,8 @@ import javafx.stage.Stage;
  * Referência: https://examples.javacodegeeks.com/desktop-java/javafx/javafx-print-api/
  * 
  */
-public class FxPrintExample1 extends Application
-{
+public class FxPrintExample1 extends Application {
+	
 	public static void main(String[] args) 
 	{
 		Application.launch(args);
