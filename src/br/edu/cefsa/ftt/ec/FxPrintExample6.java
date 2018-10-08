@@ -1,3 +1,4 @@
+package br.edu.cefsa.ftt.ec;
 import java.util.Set;
 import javafx.application.Application;
 import javafx.event.ActionEvent;

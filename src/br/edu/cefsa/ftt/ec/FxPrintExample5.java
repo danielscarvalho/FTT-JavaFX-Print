@@ -1,3 +1,4 @@
+package br.edu.cefsa.ftt.ec;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class FxPrintExample4 extends Application
+public class FxPrintExample5 extends Application
 {
 	// Create the JobStatus Label	
 	private final Label jobStatus = new Label();
@@ -31,21 +32,21 @@ public class FxPrintExample4 extends Application
 		final TextArea textArea = new TextArea();
 
 		// Create the Buttons
-		Button pageSetupButton = new Button("Page Setup and Print");
+		Button printSetupButton = new Button("Print Setup and Print");
 		
 		// Create the Event-Handlers for the Button
-		pageSetupButton.setOnAction(new EventHandler <ActionEvent>() 
+		printSetupButton.setOnAction(new EventHandler <ActionEvent>() 
 		{
             public void handle(ActionEvent event) 
             {
-            	pageSetup(textArea, stage);
+            	printSetup(textArea, stage);
             }
         });
 		
 		// Create the Status Box
 		HBox jobStatusBox = new HBox(5, new Label("Job Status: "), jobStatus);
 		// Create the Button Box
-		HBox buttonBox = new HBox(pageSetupButton);
+		HBox buttonBox = new HBox(printSetupButton);
 		
 		// Create the VBox
 		VBox root = new VBox(5);
@@ -73,18 +74,18 @@ public class FxPrintExample4 extends Application
 		stage.show();		
 	}
 	
-	private void pageSetup(Node node, Stage owner) 
+	private void printSetup(Node node, Stage owner) 
 	{
-		// Create the PrinterJob
+		// Create the PrinterJob		
 		PrinterJob job = PrinterJob.createPrinterJob();
-		
+	
 		if (job == null) 
 		{
 			return;
 		}
-		
-		// Show the page setup dialog
-		boolean proceed = job.showPageSetupDialog(owner);
+
+		// Show the print setup dialog
+		boolean proceed = job.showPrintDialog(owner);
 		
 		if (proceed) 
 		{

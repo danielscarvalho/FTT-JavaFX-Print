@@ -1,3 +1,4 @@
+package br.edu.cefsa.ftt.ec;
  
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
@@ -25,6 +26,7 @@ import javafx.stage.Stage;
  * 
  */
 public class PrintDemo extends Application {
+	
     @Override
     public void start(Stage primaryStage) {
  
@@ -74,7 +76,8 @@ public class PrintDemo extends Application {
         // Once the print action hears a true go print the WebView node.
         printActionProperty.addListener( (ChangeListener) (obsValue, oldState, newState) -> {
             if (newState == State.SUCCEEDED) {
-                print(webPage);
+            	System.out.println("Printing...");
+            	this.print(webPage);
             }
         });
  
@@ -86,7 +89,10 @@ public class PrintDemo extends Application {
      * @param node The scene node to be printed.
      */
     public void print(final Node node) {
-        Printer printer = Printer.getDefaultPrinter();
+    	
+    	System.out.println("Printing...");
+        
+    	Printer printer = Printer.getDefaultPrinter();
         PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
         double scaleX = pageLayout.getPrintableWidth() / node.getBoundsInParent().getWidth();
         double scaleY = pageLayout.getPrintableHeight() / node.getBoundsInParent().getHeight();

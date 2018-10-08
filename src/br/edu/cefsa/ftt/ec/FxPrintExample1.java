@@ -1,4 +1,6 @@
+package br.edu.cefsa.ftt.ec;
 import javafx.application.Application;
+import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.print.Printer;
@@ -8,7 +10,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class FxPrintExample2 extends Application
+/*
+ * Referência: https://examples.javacodegeeks.com/desktop-java/javafx/javafx-print-api/
+ * 
+ */
+public class FxPrintExample1 extends Application
 {
 	public static void main(String[] args) 
 	{
@@ -21,24 +27,19 @@ public class FxPrintExample2 extends Application
 		// Create the TextArea
 		final TextArea textArea = new TextArea();
 		// Create the Button
-		Button button = new Button("Get the Default Printer");
+		Button button = new Button("Get all Printers");
 
 		// Create the Event-Handlers for the Buttons
 		button.setOnAction(new EventHandler <ActionEvent>() 
 		{
             public void handle(ActionEvent event) 
             {
-            	//Get the Default Printer
-        		Printer defaultprinter = Printer.getDefaultPrinter();
-
-        		if (defaultprinter != null) 
+            	//Get all Printers
+        		ObservableSet<Printer> orinters = Printer.getAllPrinters();
+        		
+        		for(Printer printer : orinters) 
         		{
-        			String name = defaultprinter.getName();
-        			textArea.appendText("Default printer name: " + name);
-        		} 
-        		else 
-        		{
-        			textArea.appendText("No printers installed.");
+        			textArea.appendText(printer.getName()+"\n");
         		}		
             }
         });
@@ -62,7 +63,7 @@ public class FxPrintExample2 extends Application
 		// Add the scene to the Stage
 		stage.setScene(scene);
 		// Set the title of the Stage
-		stage.setTitle("Show the default Printer");
+		stage.setTitle("Showing all Printers");
 		// Display the Stage
 		stage.show();		
 	}

@@ -1,3 +1,4 @@
+package br.edu.cefsa.ftt.ec;
 import javafx.print.JobSettings;
 import javafx.print.PageLayout;
 import javafx.print.PageOrientation;
